@@ -1,0 +1,10 @@
+[Unit]
+Description=d.js-bot - A discord bot with a command handler.
+Documentation=https://github.com/arynthernium/d.js-bot
+After=network.target
+[Service]
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node /path/to/bot/dir/index.js
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

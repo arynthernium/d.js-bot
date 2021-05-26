@@ -1,0 +1,8 @@
+{
+	"uid": "d.js-bot",
+	"spinSleepTime": 2000,
+	"append": true,
+	"watch": true,
+	"script": "index.js",
+	"sourceDir": "/path/to/bot/dir"
+}

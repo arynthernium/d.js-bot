@@ -1,0 +1,25 @@
+{
+	"name": "d.js-bot",
+	"version": "1.0.0",
+	"description": "A discord bot with a command handler.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/arynthernium/d.js-bot.git"
+	},
+	"keywords": [
+		"discord.js",
+		"bot",
+		"template"
+	],
+	"author": "aryn",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/arynthernium/d.js-bot/issues"
+	},
+	"homepage": "https://github.com/arynthernium/d.js-bot#readme"
+}
