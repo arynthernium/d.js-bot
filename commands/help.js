@@ -10,7 +10,7 @@ module.exports = {
 				"color": 290844,
 				"timestamp": new Date(),
 				"footer": {
-					"text": `v${process.env.prefix}`
+					"text": `v${process.env.version}`
 				},
 				"author": {
 					"name": msg.author.tag,
