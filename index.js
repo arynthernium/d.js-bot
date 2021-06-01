@@ -11,6 +11,9 @@ client.commands = new Discord.Collection();
 const clientCommands = require('./commands');
 Object.keys(clientCommands).map(key => {
 	client.commands.set(clientCommands[key].name, clientCommands[key]);
+	clientCommands[key].aliases.forEach(alias => {
+		client.commands.set(alias, clientCommands[key]);
+	});
 });
 
 client.errorembed = { "title": "Error", "description": "An internal error occurred.", "color": 14682891, "footer": { "text": `v${process.env.version}` } };

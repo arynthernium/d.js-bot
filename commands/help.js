@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'help',
+	aliases: ['h', 'he'],
 	description: 'help command.',
 	usage: "--PREFIX--help [commandname]",
 	execute(msg, args, client) {

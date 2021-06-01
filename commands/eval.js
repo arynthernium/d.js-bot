@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'eval',
+	aliases: ['e'],
 	description: 'Evaluate js.',
 	usage: "--PREFIX--eval [expression]",
 	execute(msg) {

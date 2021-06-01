@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'echo',
+	aliases: [],
 	usage: "--PREFIX--echo",
 	description: 'Echoes any arguments you give it.',
 	execute(msg, args) {
