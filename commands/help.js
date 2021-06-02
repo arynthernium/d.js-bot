@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'help',
-	aliases: ['h', 'he'],
+	aliases: ['h'],
 	description: 'help command.',
 	usage: "--PREFIX--help [commandname]",
 	execute(msg, args, client) {
@@ -11,7 +11,7 @@ module.exports = {
 				"color": 290844,
 				"timestamp": new Date(),
 				"footer": {
-					"text": `v${process.env.version}`
+					"text": `v${client.config.version}`
 				},
 				"author": {
 					"name": msg.author.tag,
@@ -28,7 +28,7 @@ module.exports = {
 					},
 					{
 						"name": "Usage",
-						"value": "```" + cmdobj.usage.replace("--PREFIX--", process.env.prefix) + "```"
+						"value": "```" + cmdobj.usage.replace("--PREFIX--", client.config.prefix) + "```"
 					}
 				]
 			};
@@ -40,7 +40,7 @@ module.exports = {
 				"color": 290844,
 				"timestamp": new Date(),
 				"footer": {
-					"text": `v${process.env.prefix}`
+					"text": `v${client.config.prefix}`
 				},
 				"author": {
 					"name": msg.author.tag,
@@ -57,7 +57,7 @@ module.exports = {
 					},
 					{
 						"name": "Usage",
-						"value": "```" + cmdobj.usage.replace("--PREFIX--", process.env.prefix) + "```"
+						"value": "```" + cmdobj.usage.replace("--PREFIX--", client.config.prefix) + "```"
 					}
 				]
 			};

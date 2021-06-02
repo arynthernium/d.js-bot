@@ -10,7 +10,7 @@ module.exports = {
 			const embed = {
 				"title": "Syntax error",
 				"color": 14682891,
-				"description": `You used the incorrect syntax.\nPlease refer to Help for usage.\n\`${process.env.prefix}help ${module.exports.name}\``
+				"description": `You used the incorrect syntax.\nPlease refer to Help for usage.\n\`${client.config.prefix}help ${module.exports.name}\``
 			};
 			msg.channel.send({ embed });
 		}

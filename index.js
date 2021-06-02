@@ -1,8 +1,11 @@
-require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-client.login(process.env.token);
+client.config = require('./config.js');
+
+client.login(client.config.token);
+delete client.config.token;
+
 client.on('ready', () => {
 	console.info(`Running as: ${client.user.tag}`);
 });
@@ -16,14 +19,14 @@ Object.keys(clientCommands).map(key => {
 	});
 });
 
-client.errorembed = { "title": "Error", "description": "An internal error occurred.", "color": 14682891, "footer": { "text": `v${process.env.version}` } };
+client.errorembed = { "title": "Error", "description": "An internal error occurred.", "color": 14682891, "footer": { "text": `v${client.config.version}` } };
 
 client.on('message', msg => {
 	const args = msg.content.split(/ +/);
-	const command = args.shift().toLowerCase().replace(process.env.prefix, '');
+	const command = args.shift().toLowerCase().replace(client.config.prefix, '');
 
 	if (msg.mentions.has(client.user.id)) {
-		msg.channel.send(`My prefix is: ${process.env.prefix}`);
+		msg.channel.send(`My prefix is: ${client.config.prefix}`);
 	};
 
 	if (!client.commands.has(command)) return;
