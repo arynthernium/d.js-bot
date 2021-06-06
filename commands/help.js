@@ -8,6 +8,7 @@ module.exports = {
 			var cmdobj = client.commands.get(args[0]);
 			const embed = {
 				"title": "Help",
+				"description": "<parameter> is a required parameter.\nThe command will return a syntax error if this is not provided.\n[parameter] is an optional parameter.\nThese are for optional functionality.",
 				"color": 290844,
 				"timestamp": new Date(),
 				"footer": {
