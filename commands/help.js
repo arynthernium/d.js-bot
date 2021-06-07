@@ -21,7 +21,13 @@ module.exports = {
 				"fields": [
 					{
 						"name": "Command",
-						"value": cmdobj.name
+						"value": cmdobj.name,
+						"inline": true
+					},
+					{
+						"name": "Aliases",
+						"value": "`" + cmdobj.aliases.join('`, `') + "`",
+						"inline": true
 					},
 					{
 						"name": "Description",
