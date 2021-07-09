@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'echo',
 	aliases: [],
-	usage: "--PREFIX--echo",
+	usage: `--PREFIX--echo "<text>"`,
 	description: 'Echoes any arguments you give it.',
 	execute(msg, args) {
 		if (args[0]) {

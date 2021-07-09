@@ -2,8 +2,8 @@ module.exports = {
 	name: 'latency',
 	aliases: ["ping", "p", "l", "lat"],
 	usage: "--PREFIX--latency",
-	description: 'Returns "Alive!" if the bot is online.',
-	execute(msg, args, client) {
+	description: `Sends the bot's message and API latency.`,
+	execute(msg, params, client) {
 		const embed = {
 			"title": "Latency",
 			"color": 16755200,

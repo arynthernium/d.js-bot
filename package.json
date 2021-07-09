@@ -23,6 +23,7 @@
 	},
 	"homepage": "https://github.com/arynthernium/d.js-bot#readme",
 	"dependencies": {
-		"discord.js": "^12.5.3"
+		"discord.js": "^12.5.3",
+		"getopts": "^2.3.0"
 	}
 }

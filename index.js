@@ -1,6 +1,15 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+const parseWords = (words = '') =>
+	(words.match(/[^\s"]+|"([^"]*)"/gi) || []).map((word) =>
+		word.replace(/^"(.+(?="$))"$/, '$1'))
+const getopts = require('getopts');
+
+function parseArgs(args) {
+	return getopts(parseWords(args.join(' ')));
+};
+
 client.config = require('./config.js');
 
 client.login(client.config.token);
@@ -22,21 +31,24 @@ Object.keys(clientCommands).map(key => {
 client.errorembed = { "title": "Error", "description": "An internal error occurred.", "color": 14682891, "footer": { "text": `v${client.config.version}` } };
 
 client.on('message', msg => {
-	const args = msg.content.split(/ +/);
-	const command = args.shift().toLowerCase().replace(client.config.prefix, '');
-
 	if (msg.mentions.has(client.user.id)) {
 		msg.channel.send(`My prefix is: ${client.config.prefix}`);
 	};
 
-	if (!client.commands.has(command)) return;
+	if (msg.content.startsWith(client.config.prefix)) {
+		const args = msg.content.split(' ');
+		const command = args.shift().toLowerCase().replace(client.config.prefix, '');
+		const params = getopts(parseWords(args.join(' ')));
 
-	try {
-		client.commands.get(command).execute(msg, args, client);
-	} catch (error) {
-		console.error(error);
-		var errorembed = client.errorembed;
-		errorembed.timestamp = new Date();
-		msg.channel.send({ errorembed });
+		if (!client.commands.has(command)) return;
+
+		try {
+			client.commands.get(command).execute(msg, params, client, args);
+		} catch (error) {
+			console.error(error);
+			var errorembed = client.errorembed;
+			errorembed.timestamp = new Date();
+			msg.channel.send({ errorembed });
+		};
 	};
 });

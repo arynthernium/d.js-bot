@@ -3,9 +3,9 @@ module.exports = {
 	aliases: ['h'],
 	description: 'help command.',
 	usage: "--PREFIX--help [commandname]",
-	execute(msg, args, client) {
-		if (client.commands.has(args[0])) {
-			var cmdobj = client.commands.get(args[0]);
+	execute(msg, params, client) {
+		if (client.commands.has(params._[0])) {
+			var cmdobj = client.commands.get(params._[0]);
 			const embed = {
 				"title": "Help",
 				"description": "<parameter> is a required parameter.\nThe command will return a syntax error if this is not provided.\n[parameter] is an optional parameter.\nThese are for optional functionality.",
