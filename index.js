@@ -6,10 +6,6 @@ const parseWords = (words = '') =>
 		word.replace(/^"(.+(?="$))"$/, '$1'))
 const getopts = require('getopts');
 
-function parseArgs(args) {
-	return getopts(parseWords(args.join(' ')));
-};
-
 client.config = require('./config.js');
 
 client.login(client.config.token);
